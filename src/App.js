@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+const HelloWord = (props:{name:String, age: numer})=> {
+  return (
+      <a
+      className= 'App-link'
+      href= 'https://reactjs.org'
+      target= '_blank'
+      rel='noopener noreferrer'
+      >
+          Hello World - { props.name}: { props.age}
+      </a>
+  )
+}
+const App: React.Fc =() => {
+  const [age, setAge ]  =React.useState (20)
+  return(
+      <div className='App'>
+          <header className='App-header'>
+          <HelloWord name={'@Ron'}  age={age}/>
+          <button className='button'onClick={()=> {
+               console.log('CLICK') 
+               setAge (age+1)
+              }}>
+              contador
+          </button>
+          </header>
+      </div>
+  );
+};
 export default App;
